@@ -5,7 +5,7 @@ def month_to_season(month):
         return "Лето"
     elif 9 <= month <= 11:
         return "Осень"
-    elif 11 <= month <= 1 or month == 2:
+    elif 11 <= month or month == 1 or month == 2:
         return "Зима"
     else:
         return "Неверный номер месяца"
