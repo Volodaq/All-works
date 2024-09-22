@@ -4,6 +4,5 @@ class Smartphone:
         self.model = model
         self.phone_number = phone_number
 
-    def get_info(self):
+    def __str__(self):
         return f"{self.brand} - {self.model}. {self.phone_number}"
-
