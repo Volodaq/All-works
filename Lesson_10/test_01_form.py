@@ -21,8 +21,8 @@ def test_fill_form(driver):
     """Тест для заполнения и проверки формы на странице."""
     with allure.step("Страница и данные для теста"):
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/data-types.html")
-    form_page = FormPage(driver)
-    fields = {
+        form_page = FormPage(driver)
+        fields = {
         "first-name": "Иван",
         "last-name": "Петров",
         "address": "Ленина, 55-3",
@@ -41,21 +41,21 @@ def test_fill_form(driver):
     with allure.step("Нажатие на кнопку Submit"):
         form_page.submit_form()
 
-    with allure.step("Проверка цвета фона поля "Zip code" после отправки формы"):
+    with allure.step("Проверка цвета фона поля 'Zip code' после отправки формы"):
         zip_code_color = form_page.get_field_background_color("zip-code")
-    expected_zip_code_color = 'rgba(248, 215, 218, 1)'
+        expected_zip_code_color = 'rgba(248, 215, 218, 1)'
     assert zip_code_color == expected_zip_code_color, (
-        f"Expected Zip code background color: {expected_zip_code_color}, "
-        f"but got: {zip_code_color}"
-    )
+             f"Expected Zip code background color: {expected_zip_code_color}, "
+             f"but got: {zip_code_color}"
+         )
 
     with allure.step("Проверка цвета остальных полей"):
         green_fields = ["first-name", "last-name", "address", "city", "e-mail",
                         "phone", "job-position", "company"]
-    expected_green_color = 'rgba(209, 231, 221, 1)'
+        expected_green_color = 'rgba(209, 231, 221, 1)'
     for field_name in green_fields:
         field_color = form_page.get_field_background_color(field_name)
-        assert field_color == expected_green_color, (
+    assert field_color == expected_green_color, (
             f"Expected background color for {field_name}: "
             f"{expected_green_color}, but got: {field_color}"
         )

@@ -25,17 +25,17 @@ def test_addition(driver):
     calculator = CalculatorPage(driver)
 
     with allure.step("Установка задержки в 45 секунд"):
-    calculator.set_delay("45")
+         calculator.set_delay("45")
 
     with allure.step("Выполнение сложения 7 + 8"):
-    calculator.click_button('7')
-    calculator.click_button('+')
-    calculator.click_button('8')
-    calculator.click_button('=')
+        calculator.click_button('7')
+        calculator.click_button('+')
+        calculator.click_button('8')
+        calculator.click_button('=')
 
     with allure.step("Ожидание, пока результат не будет отображен"):
-    calculator.wait_for_result("15")
+        calculator.wait_for_result("15")
 
     with allure.step("Получение результата и проверка"):
-    result = calculator.get_result()
-    assert result == '15', "Ожидалось, что результат будет '15', но получено '{result}'"
+        result = calculator.get_result()
+        assert result == '15', "Ожидалось, что результат будет '15', но получено '{result}'"
